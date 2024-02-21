@@ -1,0 +1,428 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;600;800;900&family=Poppins:wght@300;400;500;600&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    scroll-behavior: smooth;
+    font-family: 'Poppins', sans-serif;
+
+}
+
+:root {
+    --bg-color: linear-gradient(to bottom, rgba(165, 162, 162, 0.3) 15%, rgba(121, 121, 121, 0.7) 85%, #030303 100%);
+    --second-bg-color: #cac6c6;
+    --two-color: #b5a168;
+    --contact-color: #fff1f1;
+    --text-color: #2a2a2a;
+    --second-color: #202020;
+    --second-main-color: rgb(128, 131, 133);
+    --main-color: linear-gradient(to bottom, rgba(214, 205, 205, 0.3) 15%, rgba(121, 121, 121, 0.7)) 85%, #a3a3a3;
+    --btn-color: linear-gradient(to bottom, rgba(233, 232, 191, 0.3) 15%, #b5a168 85%, #a09064);
+    --big-font: 5rem;
+    --h2-font: 3rem;
+    --p-font: 1.1rem;
+}
+
+/*-------------General Css------------ */
+
+body {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    min-height: 100vh;
+    color: var(--text-color);
+    background-image: url(../img/master.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+span {
+    color: var(--two-color);
+}
+
+
+.home-text h1 {
+    font-size: var(--big-font);
+    font-weight: 800;
+    color: var(--text-color);
+    line-height: 1.1;
+    margin: 0 0 35px;
+    padding-bottom: 40px;
+}
+
+
+.home-text h3 {
+    color: var(--text-color);
+    margin: 0 0 15px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.1;
+}
+
+.home-text p {
+    color: var(--second-color);
+    font-size: var(--p-font);
+    line-height: 1.8;
+    margin-bottom: 40px;
+}
+
+section {
+    padding: 35px;
+
+}
+
+/*-------------Analog Clock------------ */
+
+.container {
+    position: relative;
+
+}
+
+.clock {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background-image: url(../img/master.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.clock a {
+    position: absolute;
+    transform: rotate(calc(30deg * var(--i)));
+    inset: 12px;
+    text-align: center;
+}
+
+.clock a b {
+    transform: rotate(calc(-30deg * var(--i)));
+    display: inline-block;
+    font-size: 25px;
+    color: var(--second-color);
+
+}
+
+.clock::before {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--text-color);
+    z-index: 2;
+}
+
+.hand {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.hand i {
+    position: absolute;
+    background-color: var(--clr);
+    width: 6px;
+    height: var(--h);
+    border-radius: 8px;
+
+}
+
+/*-------------Calculator------------ */
+
+.calculator {
+    margin-top: 65px;
+    padding: 20px;
+    border-radius: 16px;
+    background-image: url(../img/master.jpg);
+    box-shadow: 3px 3px 15px rgba(113, 115, 119, 0.5);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+input {
+    width: 230px;
+    border: none;
+    padding: 8px;
+    margin: 10px;
+    border-radius: 1rem;
+    box-shadow: 3px 3px 15px rgbs(84, 84, 84, 0.1);
+    font-size: 30px;
+    cursor: pointer;
+
+}
+
+input::placeholder {
+    color: var(--text-color);
+}
+
+.button {
+    border: none;
+    width: 40px;
+    height: 40px;
+    margin: 10px;
+    border-radius: 50%;
+    color: --text-color;
+    font-size: 20px;
+    box-shadow: 2px 2px 35px black;
+    cursor: pointer;
+}
+
+.equalBtn {
+    background-color: var(--two-color);
+}
+
+.operator {
+    color: var(--btn-color);
+}
+
+/*---------------Weather------------- */
+
+.weat_row {
+    display: flex;
+    flex-direction: row;
+    margin-top: 65px;
+
+}
+
+.form_col {
+    display: flex;
+    flex-direction: column;
+}
+
+.search-form {
+    margin: 20px 25px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 2px solid #332b1d;
+
+    font-size: var(--p-font);
+    text-align: center;
+}
+
+.weat_btn {
+    display: inline-block;
+    margin: 0px 25px;
+    border-radius: 5px;
+    padding: 5px 30px;
+    text-align: center;
+    border: none;
+    font-size: var(--p-font);
+    background-color: var(--two-color);
+}
+
+.weat_btn:hover {
+    background-color: var(--second-bg-color);
+}
+
+.measurements {
+    position: relative;
+    left: 28px;
+    top: 10px;
+
+}
+
+.measurements a {
+    font-size: var(--p-font);
+    color: var(--text-color);
+
+}
+
+.measurements h3 {
+    font-size: 1.3rem;
+    color: var(--text-color);
+
+}
+
+.info_weat_new {
+    width: 50%;
+    max-width: 300px;
+    text-align: left;
+    padding: 10px;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    box-shadow: 3px 3px 15px rgba(113, 115, 119, 0.5);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 15px;
+    padding: 25px 10px;
+}
+
+.info_weat_new li {
+    font-size: var(--text-color);
+}
+
+.info_weat_new span {
+    font-weight: 600;
+    margin-left: 1rem;
+    color: var(--text-color);
+
+
+}
+
+.info_weat_new h3 {
+    font-size: var(--h2-font);
+
+}
+
+.icons_weat img {
+    width: 65px;
+}
+
+.side-info {
+    position: relative;
+    left: 72px;
+}
+
+/*-------------Todo List------------ */
+
+.container_todo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 65px;
+}
+
+.input-container_todo {
+    max-width: 500px;
+    text-align: center;
+    padding: 10px;
+    background-image: url(../img/master.jpg);
+    box-shadow: 3px 3px 15px rgba(113, 115, 119, 0.5);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 15px;
+}
+
+.input-container_todo input {
+    border: none;
+    outline: none;
+    padding: 12px;
+    margin-block: 12px;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.input-container_todo input[type="button"] {
+    background-color: var(--two-color);
+    color: var(--text-color);
+    font-weight: 700;
+    margin-left: 8px;
+    cursor: pointer;
+    padding: 12px 14px;
+    text-align: center;
+}
+
+.input-container_todo input[type="button"]:hover {
+    background-color: var(--second-bg-color);
+}
+
+.input-container_todo h3 {
+    color: var(--text-color);
+    margin: 10px 0 15px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.1;
+
+}
+
+.todoList_new {
+    width: 70%;
+    max-width: 450px;
+    display: flex;
+    flex-direction: column;
+
+    margin-top: 1rem;
+
+}
+
+.todoList_new li {
+    list-style-type: none;
+    cursor: pointer;
+    margin-block-end: 12px;
+    border-radius: 8px;
+    border: 0.125px solid #a19f9f;
+    padding: 6px 12px;
+    background-color: #ffffff;
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    transition: background-color 0.5s;
+}
+
+.todoList_new li:hover {
+    background-color: #cbcaca;
+}
+
+.todoList_new li p {
+    flex-grow: 1;
+    padding: 2px;
+}
+
+.btn {
+    margin: 0px 10px;
+    border: none;
+    outline: none;
+    font-size: 0.80rem;
+    background: none;
+    font-weight: 600;
+    cursor: pointer;
+
+}
+
+.deleteBtn {
+    color: var(--two-color);
+}
+
+.editBtn {
+    color: var(--text-color);
+}
+
+
+/*----------------End--------------- */
+
+.end {
+    padding: 20px 15%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    margin-top: 75px;
+    gap: 2rem;
+    background: var(--btn-color);
+    border-radius: 10px;
+}
+
+.last-text p {
+    color: var(--second-color);
+    font-size: 14px;
+
+}
+
+.top img {
+    height: 45px;
+    width: 45px;
+    padding: 10px;
+    border-radius: 15px;
+
+    background: var(--btn-color);
+
+}

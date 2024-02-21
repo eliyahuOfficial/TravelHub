@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Travel Hub</title>
+    <link rel="icon" type="image/x-icon" href="./img/eliyahu-faicon.png" />
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <script src="./js/script.js" defer></script>
+    <script src="https://kit.fontawesome.com/595a890311.js" crossorigin="anonymous"></script>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<!------Eliyahu Levi - Java Project---->
+
+<body>
+    <!----------General Body Page---------->
+    <section>
+        <div class="home-text">
+
+            <h1>Travel <span>Hub</span></h1>
+
+            <h3>Navigate Life's Journey: <span>Your One-Stop </span>Travel Hub </h3>
+
+            <div>
+                <iframe style="border-radius:12px"
+                    src="https://open.spotify.com/embed/playlist/37i9dQZF1DWXRqgorJj26U?utm_source=generator"
+                    width="100%" height="auto" frameBorder="0" allowfullscreen=""
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                    loading="lazy"></iframe>
+            </div>
+        </div>
+
+    </section>
+    <!------------Analog Clock------------->
+    <section>
+        <div class="container">
+
+            <div class="clock">
+
+                <div style="--clr: #b5a168; --h: 74px;" id="hour" class="hand">
+                    <i></i>
+                </div>
+                <div style="--clr: #7c7c7c; --h: 84px" id="min" class="hand">
+                    <i></i>
+                </div>
+                <div style="--clr: #494949; --h: 94px" id="sec" class="hand">
+                    <i></i>
+                </div>
+
+                <a style="--i: 1"><b>1</b></a>
+                <a style="--i: 2"><b>2</b></a>
+                <a style="--i: 3"><b>3</b></a>
+                <a style="--i: 4"><b>4</b></a>
+                <a style="--i: 5"><b>5</b></a>
+                <a style="--i: 6"><b>6</b></a>
+                <a style="--i: 7"><b>7</b></a>
+                <a style="--i: 8"><b>8</b></a>
+                <a style="--i: 9"><b>9</b></a>
+                <a style="--i: 10"><b>10</b></a>
+                <a style="--i: 11"><b>11</b></a>
+                <a style="--i: 12"><b>12</b></a>
+
+            </div>
+        </div>
+
+    </section>
+    <!-------------Calculator-------------->
+    <section>
+        <div>
+            <div class="calculator">
+                <input type="text" id="inputBox" placeholder="0" />
+                <div>
+                    <button class="button operator">AC</button>
+                    <button class="button operator">DEL</button>
+                    <button class="button operator">%</button>
+                    <button class="button operator">/</button>
+                </div>
+                <div>
+                    <button class="button">7</button>
+                    <button class="button">8</button>
+                    <button class="button">9</button>
+                    <button class="button operator">*</button>
+                </div>
+                <div>
+                    <button class="button">4</button>
+                    <button class="button">5</button>
+                    <button class="button">6</button>
+                    <button class="button operator">-</button>
+                </div>
+                <div>
+                    <button class="button">1</button>
+                    <button class="button">2</button>
+                    <button class="button">3</button>
+                    <button class="button operator">+</button>
+                </div>
+
+                <div>
+                    <button class="button">00</button>
+                    <button class="button">0</button>
+                    <button class="button">.</button>
+                    <button class="button equalBtn">=</button>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <!-------------Todo List--------------->
+    <section>
+        <div class="container_todo">
+            <div class="input-container_todo">
+                <h3>My <span>To Do</span> List</h3>
+                <input type="text" placeholder="Add a new to do..." id="inputBoxtodo">
+                <input type="button" value="Add" id="addBtntodo">
+            </div>
+
+            <ul class="todoList_new" id="todoListNew">
+
+            </ul>
+        </div>
+    </section>
+    <!--------------Weather---------------->
+    <section>
+        <div class="weat_row">
+            <form class="form_col" id="search-form">
+                <input type="text" id="search-input" aria-describedby="searchCity" placeholder="Search city..."
+                    class="search-form" autocomplete="on" />
+                <input class="weat_btn" type="submit" value="Search"></input>
+            </form>
+
+        </div>
+        <span class="measurements">
+            <h3 id="searched-city">
+                Your City
+            </h3>
+            <a href="#" id="celcius-link">C°</a> |
+            <a href="#" id="fahrenheit-link">F°</a>
+        </span>
+    </section>
+    <section class="info_weat_new">
+        <div id="weather-icon" class="icons_weat"></div>
+        <div>
+            <h3 id="current-temperature">4°</h3>
+            <p id="current-time">11:00</p>
+            <h2 id="current-day">Today</h2>
+            <p id="weather-type">Cloudy</p>
+            <ul>
+                <li>Humidity: <span id="humidity"></span> </li>
+                <li>Wind: <span id="wind"></span> </li>
+            </ul>
+        </div>
+    </section>
+    <!----------------End------------------->
+    <section class="end">
+        <div class="last-text">
+            <p>
+                Copyright © 2024 Eliyahu Levi. All Rights Reserved.
+            </p>
+        </div>
+        <div class="top">
+            <a href="#"><img src="./img/up-arrow-alt.png" alt="Arrow up"></a>
+        </div>
+    </section>
+
+
+</body>
+
+</html>
