@@ -237,6 +237,7 @@ let newCurrentDay = new Date();
 currentDay.innerHTML = formatDay(newCurrentDay);
 
 
+
 function displayWeatherInfo(response) {
     document.querySelector("#searched-city").innerHTML = response.data.name;
     const temperature = Math.round(response.data.main.temp);
@@ -245,32 +246,36 @@ function displayWeatherInfo(response) {
     document.querySelector("#humidity").innerHTML = `${humidity}%`;
     const windSpeed = Math.round(response.data.wind.speed);
     document.querySelector("#wind").innerHTML = `${windSpeed}km/h`;
-    const weatherType = response.data.weather[0].main;
-    document.querySelector("#weather-type").innerHTML = weatherType;
-
-
+    const weatherTypeCode = response.data.weather[0].icon;
     const weatherIconContainer = document.querySelector("#weather-icon");
-
-
     weatherIconContainer.innerHTML = "";
 
-
     const weatherIcons = {
-        "Rain": "https://img.icons8.com/color-glass/42/000000/rain.png",
-        "Clouds": "https://img.icons8.com/color-glass/42/000000/cloud.png",
-        "Clear": "https://img.icons8.com/color-glass/42/000000/sun.png",
-        "Wind": "https://img.icons8.com/color-glass/42/000000/wind.png",
-        "Cloudy": "https://img.icons8.com/color-glass/42/000000/partly-cloudy-day.png"
-
+        "01d": "https://openweathermap.org/img/wn/01d@2x.png",
+        "02d": "https://openweathermap.org/img/wn/02d@2x.png",
+        "03d": "https://openweathermap.org/img/wn/03d@2x.png",
+        "04d": "https://openweathermap.org/img/wn/04d@2x.png",
+        "09d": "https://openweathermap.org/img/wn/09d@2x.png",
+        "10d": "https://openweathermap.org/img/wn/10d@2x.png",
+        "11d": "https://openweathermap.org/img/wn/11d@2x.png",
+        "13d": "https://openweathermap.org/img/wn/13d@2x.png",
+        "50d": "https://openweathermap.org/img/wn/50d@2x.png",
+        "01n": "https://openweathermap.org/img/wn/01n@2x.png",
+        "02n": "https://openweathermap.org/img/wn/02n@2x.png",
+        "03n": "https://openweathermap.org/img/wn/03n@2x.png",
+        "04n": "https://openweathermap.org/img/wn/04n@2x.png",
+        "09n": "https://openweathermap.org/img/wn/09n@2x.png",
+        "10n": "https://openweathermap.org/img/wn/10n@2x.png",
+        "11n": "https://openweathermap.org/img/wn/11n@2x.png",
+        "13n": "https://openweathermap.org/img/wn/13n@2x.png",
+        "50n": "https://openweathermap.org/img/wn/50n@2x.png"
     };
 
-
-    if (weatherIcons.hasOwnProperty(weatherType)) {
-        const iconSrc = weatherIcons[weatherType];
-
+    if (weatherIcons.hasOwnProperty(weatherTypeCode)) {
+        const iconSrc = weatherIcons[weatherTypeCode];
         const iconElement = document.createElement("img");
         iconElement.src = iconSrc;
-        iconElement.alt = weatherType;
+        iconElement.alt = response.data.weather[0].description; // Using weather description as alt text
         weatherIconContainer.appendChild(iconElement);
     }
 }
@@ -282,14 +287,74 @@ function searchCity(city) {
     axios.get(`${apiUrl}&appid=${apiKey}`).then(displayWeatherInfo);
 }
 
+function fetchWeeklyForecast(city) {
+    const apiKey = "49cd3dd4ca4abd678c9cfdcac913c24e"; // Replace with your API key
+    const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=${apiKey}`;
+    return axios.get(apiUrl);
+}
+
 function handleSubmit(event) {
     event.preventDefault();
     let city = document.querySelector("#search-input").value;
     searchCity(city);
+    fetchWeeklyForecast(city)
+        .then(response => {
+            const forecastData = response.data.list;
+            displayWeeklyForecast(forecastData);
+        })
+        .catch(error => {
+            console.error("Error fetching weekly forecast:", error);
+        });
 }
 
+// Event listener for form submission
 const searchBar = document.querySelector("#search-form");
 searchBar.addEventListener("submit", handleSubmit);
+
+// Function to display weekly forecast
+function displayWeeklyForecast(forecastData) {
+    const dailyForecasts = {};
+
+    // Group data points by date
+    forecastData.forEach(dataPoint => {
+        const date = new Date(dataPoint.dt * 1000).toDateString();
+        if (!dailyForecasts[date]) {
+            dailyForecasts[date] = dataPoint;
+        }
+    });
+
+    // Render forecast for each day
+    const weeklyForecastContainer = document.querySelector("#weekly-forecast");
+    weeklyForecastContainer.innerHTML = ""; // Clear previous forecast data
+
+    Object.values(dailyForecasts).forEach(dataPoint => {
+        const date = new Date(dataPoint.dt * 1000); // Convert timestamp to date
+        const dayOfWeek = date.toLocaleDateString('en-US', { weekday: 'long' });
+        const temperature = Math.round(dataPoint.main.temp);
+        const weatherType = dataPoint.weather[0].description;
+        const iconCode = dataPoint.weather[0].icon;
+
+        const forecastItem = document.createElement("div");
+        forecastItem.classList.add("forecast-item");
+
+        const dayElement = document.createElement("div");
+        dayElement.textContent = dayOfWeek;
+        forecastItem.appendChild(dayElement);
+
+        const iconElement = document.createElement("img");
+        iconElement.src = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
+        iconElement.alt = weatherType;
+        forecastItem.appendChild(iconElement);
+
+        const tempElement = document.createElement("div");
+        tempElement.textContent = `${temperature}°`;
+        forecastItem.appendChild(tempElement);
+
+        weeklyForecastContainer.appendChild(forecastItem);
+    });
+}
+
+
 
 
 
