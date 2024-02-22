@@ -404,7 +404,6 @@ input::placeholder {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 10px;
     margin-top: 75px;
     gap: 2rem;
     background: var(--btn-color);
