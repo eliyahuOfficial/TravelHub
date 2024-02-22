@@ -40,6 +40,7 @@ body {
     background-position: center;
     background-repeat: no-repeat;
 
+
     -webkit-animation: slidein 100s;
     animation: slidein 100s;
 
@@ -52,6 +53,7 @@ body {
     -webkit-animation-direction: alternate;
     animation-direction: alternate;
 }
+
 
 @-webkit-keyframes slidein {
     from {
@@ -317,14 +319,58 @@ input::placeholder {
 
 }
 
-.icons_weat img {
-    width: 65px;
-}
 
 .side-info {
     position: relative;
     left: 72px;
 }
+
+
+
+
+.container_week_weat {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: transparent;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+
+.forecast-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, auto);
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.forecast-item {
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.forecast-item img {
+    width: 50px;
+    height: 50px;
+}
+
+.forecast-item div {
+    margin-top: 5px;
+    font-size: 16px;
+    color: #666;
+}
+
+
+
+
+
 
 /*-------------Todo List------------ */
 
