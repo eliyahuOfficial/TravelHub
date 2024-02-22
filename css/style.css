@@ -56,7 +56,7 @@ body {
 @-webkit-keyframes slidein {
     from {
         background-position: top;
-        background-size: 3000px;
+        background-size: 5000px;
     }
 
     to {
@@ -68,7 +68,7 @@ body {
 @keyframes slidein {
     from {
         background-position: top;
-        background-size: 3000px;
+        background-size: 5000px;
     }
 
     to {
