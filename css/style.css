@@ -87,13 +87,42 @@ span {
 
 
 .home-text h1 {
-    font-size: var(--big-font);
+
     font-weight: 800;
-    color: var(--text-color);
     line-height: 1.1;
     margin: 0 0 35px;
     padding-bottom: 40px;
+    font-size: var(--big-font);
+    color: rgba(225, 225, 225, .01);
+    background-image: url(../img/master.jpg);
+    background-repeat: repeat;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: animate 15s ease-in-out infinite;
+
+
 }
+
+@keyframes animate {
+
+    0%,
+    100% {
+        background-position: left top;
+    }
+
+    25% {
+        background-position: right bottom;
+    }
+
+    50% {
+        background-position: left bottom;
+    }
+
+    75% {
+        background-position: right top;
+    }
+}
+
 
 
 .home-text h3 {
