@@ -154,8 +154,8 @@ section {
 }
 
 .clock {
-    width: 300px;
-    height: 300px;
+    width: 280px;
+    height: 280px;
     border-radius: 50%;
     background-image: url(../img/master.jpg);
     background-size: cover;
@@ -212,7 +212,7 @@ section {
 
 .calculator {
     margin-top: 65px;
-    padding: 20px;
+    padding: 10px;
     border-radius: 16px;
     background-image: url(../img/master.jpg);
     box-shadow: 3px 3px 15px rgba(113, 115, 119, 0.5);
