@@ -533,17 +533,15 @@ input::placeholder {
     width: 45px;
     padding: 10px;
     border-radius: 15px;
+    background: var(--btn-color);
+}
 
 
-    
 @media screen and (max-width:480px) {
     section {
 
         padding: 0px;
     }
 
-
-}
-    background: var(--btn-color);
 
 }
