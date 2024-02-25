@@ -301,6 +301,7 @@ input::placeholder {
     position: relative;
     left: 28px;
     top: 10px;
+    bottom: 10px;
 
 }
 
