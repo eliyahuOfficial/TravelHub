@@ -140,6 +140,11 @@ span {
     margin-bottom: 40px;
 }
 
+section {
+    padding: 35px;
+}
+
+
 
 /*-------------Analog Clock------------ */
 
@@ -529,6 +534,16 @@ input::placeholder {
     padding: 10px;
     border-radius: 15px;
 
+
+    
+@media screen and (max-width:480px) {
+    section {
+
+        padding: 0px;
+    }
+
+
+}
     background: var(--btn-color);
 
 }
